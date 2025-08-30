@@ -9,10 +9,12 @@
   --primaryDark: #363f28;
   --secondary: #f4fde6;
   --tertiary: #fafd8f;
-  --tertiaryDark: #e4e966;
+  --tertiaryDark: #fdfe7c;
   --beige: #fffbf3;
   --darkGreen: #1c2223;
   --darkGreenLight: #242a2b;
+  --lightGray: #ddded5;
+  --gray: #989990;
   --success: #36a064;
   --successDark: #198e47;
   --successLight: #3cb46b;
@@ -64,6 +66,8 @@
   --color-success: var(--success);
   --color-successDark: var(--successDark);
   --color-successLight: var(--successLight);
+  --color-lightGray: var(--lightGray);
+  --color-gray: var(--gray);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
