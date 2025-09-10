@@ -130,6 +130,10 @@ body {
   @apply bg-tertiary text-darkGreen hover:bg-tertiaryDark;
 }
 
+.button.light {
+  @apply bg-white text-darkGreen hover:bg-secondary;
+}
+
 
 .outline-button {
   @apply border rounded-full bg-transparent border-secondary px-4 py-2 hover:bg-secondary hover:text-primary transition-all duration-300 cursor-pointer;
@@ -145,6 +149,10 @@ body {
 
 .button.small, .outline-button.small, .ghost-button.button.small {
   @apply px-4 py-0.5;
+}
+
+.button.big, .outline-button.big, .ghost-button.big {
+  @apply px-6 py-2;
 }
 
 .button.icon, .outline-button.icon, .ghost-button.icon {

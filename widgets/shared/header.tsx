@@ -15,7 +15,7 @@ import {
 import { ChevronDown, ChevronUp, Download, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -59,8 +59,19 @@ const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
 
+  useEffect(() => {
+    const page = document.getElementById("page");
+    if (openMenu) {
+      page?.classList.add("!overflow-hidden");
+      page?.classList.add("fixed");
+    } else {
+      page?.classList.remove("!overflow-hidden");
+      page?.classList.remove("fixed");
+    }
+  }, [openMenu]);
+
   return (
-    <header className="flex justify-between items-center font-roboto font-light text-sm">
+    <header className="flex justify-between items-center font-roboto font-light text-sm z-50">
       <Image src="/icon.svg" alt="icon" width={40} height={40} />
       <div className="gap-4 items-center flex">
         <Link href="#individual" className="outline-button small">
@@ -71,7 +82,7 @@ const Header = () => {
       <NavigationMenu className="gap-4 hidden md:flex">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent hover:!bg-primaryDark hover:!text-secondary">
+            <NavigationMenuTrigger className="bg-transparent hover:!bg-primaryDark hover:!text-secondary font-light">
               Features
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -117,7 +128,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`menu-mobile absolute top-0 ${
+        className={`menu-mobile absolute z-100 top-0 ${
           openMenu ? "right-0" : "right-[calc(-100vw)]"
         } bg-darkGreen min-h-screen w-screen md:max-w-[500px] transition-all duration-300 p-4 flex flex-col gap-6 text-lg`}
       >
